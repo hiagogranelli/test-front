@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useRouteMatch } from 'react-router-dom';
 
+import { Container, Title, TempContainer } from './styles';
+
 import api from '../../services/api';
 import apiKey from '../../config/apiKey';
 
@@ -77,12 +79,22 @@ const City: React.FC = () => {
   return (
     <>
       {city && (
-        <>
-          <h1>{`${params.city}, ${city.sys.country}`}</h1>
+        <Container>
+          <Title>{`${params.city}, ${city.sys.country}`}</Title>
           <span>{dateBuilder(new Date())}</span>
-          <h2>{Math.round(city.main.temp)}°C</h2>
+          <TempContainer>
+            <div>
+              <span>Mínima</span>
+              <strong>{Math.round(city.main.temp_min)}°C</strong>
+            </div>
+            <strong>{Math.round(city.main.temp)}°C</strong>
+            <div>
+              <span>Máxima</span>
+              <strong>{Math.round(city.main.temp_max)}°C</strong>
+            </div>
+          </TempContainer>
           <strong>{city.weather[0].description.toUpperCase()}</strong>
-        </>
+        </Container>
       )}
     </>
   );
