@@ -48,7 +48,7 @@ const Dashboard: React.FC = () => {
       setNewCity('');
       setInputError('');
       setCities([...cities, city]);
-    } catch (err) {
+    } catch (error) {
       setInputError('Digite uma cidade válida.');
     }
   }
@@ -57,7 +57,7 @@ const Dashboard: React.FC = () => {
     <>
       <Form onSubmit={addCity}>
         <input
-          placeholder="Digite o nome da cidade"
+          placeholder="Buscar por cidade"
           value={newCity}
           onChange={(e) => setNewCity(e.target.value)}
         />
