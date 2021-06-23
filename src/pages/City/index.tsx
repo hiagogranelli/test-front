@@ -59,7 +59,7 @@ const City: React.FC = () => {
       'Dezembro',
     ];
     let days = [
-      'Domingo',
+      'tiago',
       'Segunda',
       'Terça',
       'Quarta',
